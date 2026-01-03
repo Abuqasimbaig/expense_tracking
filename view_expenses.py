@@ -4,7 +4,7 @@ import os
 def view_expenses():
     load_expenses()
     
-    # Debug information
+    
     print(f"Current directory: {os.getcwd()}")
     print(f"Number of expenses loaded: {len(expenses)}")
     print(f"Expenses data: {expenses}")
@@ -23,13 +23,13 @@ def view_expenses():
         category = input("Enter your category: ")
         filtered = []
         for exp in expenses:
-            # Handle both old and new spelling
+            
             exp_category = exp.get("catagory") or exp.get("category", "")
             if exp_category == category:
                 filtered.append(exp)
         
         if not filtered:
-            print(f"❌ No expenses found for category: {category}")
+            print(f"No expenses found for category: {category}")
             return
     else:
         filtered = expenses
@@ -37,7 +37,7 @@ def view_expenses():
     total = 0
 
     for fill in filtered:
-        # Handle both old and new spelling
+        
         category_value = fill.get("catagory") or fill.get("category", "Unknown")
         
         print(f"ID: {fill['unique_id']}")
@@ -45,10 +45,10 @@ def view_expenses():
         print(f"Amount: ${float(fill['amount']):.2f}")
         print(f"Description: {fill['description']}")
         print(f"Date: {fill['today']}")
-        print("_" * 60)
+        
 
         total += float(fill['amount'])
 
-    print(f"\n💰 Total amount: ${total:.2f}")
-    print("-" * 60)
+    print(f"\n Total amount: ${total:.2f}")
+
 

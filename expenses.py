@@ -8,14 +8,14 @@ def add_expenses():
     try:
         category = input("Enter your category: ").strip()
         if not category:
-            print("❌ Category cannot be empty!")
+            print("Category cannot be empty!")
             return
         
         amount_input = input("Add Expenses: ").strip()
         amount = float(amount_input)
         
         if amount <= 0:
-            print("❌ Amount must be greater than zero!")
+            print("Amount must be greater than zero!")
             return
         
         description = input("Enter Description: ").strip()
@@ -32,14 +32,14 @@ def add_expenses():
         
         expenses.append(new_expense)
         save_expenses()
-        print("✅ Expense added successfully!")
-        print(f"   Category: {category}")
-        print(f"   Amount: ${amount:.2f}")
+        print("Expense added successfully!")
+        print(f"Category: {category}")
+        print(f"Amount: ${amount:.2f}")
         
     except ValueError:
-        print("❌ Invalid amount! Please enter a valid number.")
+        print("Invalid amount! Please enter a valid number.")
     except KeyboardInterrupt:
-        print("\n❌ Operation cancelled.")
+        print("\nOperation cancelled.")
     except Exception as e:
-        print(f"❌ An error occurred: {e}")
+        print(f"An error occurred: {e}")
 

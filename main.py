@@ -11,9 +11,7 @@ def clear_screen():
 
 def main_menu():
     while True:
-        print("\n" + "="*40)
         print("       EXPENSE TRACKER MENU")
-        print("="*40)
         print("1. Add Expense")
         print("2. View Expenses")
         print("3. Set Budget")
@@ -34,8 +32,6 @@ def main_menu():
             break
         else:
             print("Invalid choice! Please enter a valid option.")
-        
-        # Step 5: Clear screen (optional)
         input("\nPress Enter to continue...")
         clear_screen()
         

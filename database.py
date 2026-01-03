@@ -5,16 +5,10 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 EXPENSES_FILE = os.path.join(BASE_DIR, "material.json")
 
 expenses = []
-budgets = {}  # ✅ budgets (plural)
+budgets = {}  
 
-# ------------------------
-# Generic save function
-# ------------------------
 def _save_data(data, filename):
-    """
-    Internal helper function to save data to JSON.
-    Returns True if success, False if error.
-    """
+
     try:
         with open(filename, "w") as file:
             json.dump(data, file, indent=4, default=str)
@@ -23,9 +17,6 @@ def _save_data(data, filename):
         print(f"Error saving {filename}: {e}")
         return False
 
-# ------------------------
-# Load expenses
-# ------------------------
 def load_expenses():
     global expenses
 
@@ -44,9 +35,7 @@ def load_expenses():
         expenses.clear()
 
     return expenses
-# ------------------------
-# Save expenses
-# ------------------------
+
 def save_expenses():
     load_budgets()  # keep budgets safe
 
@@ -57,9 +46,7 @@ def save_expenses():
 
     return _save_data(data, EXPENSES_FILE)
 
-# ------------------------
-# Load budgets
-# ------------------------
+
 def load_budgets():
     global budgets
 
@@ -79,14 +66,12 @@ def load_budgets():
 
     return budgets
 
-# ------------------------
-# Save budgets
-# ------------------------
+
 def save_budgets(budget_data):
     global budgets
     budgets = budget_data
     
-    # Load latest expenses to avoid overwriting
+    
     load_expenses()
     
     data = {
