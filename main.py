@@ -21,10 +21,6 @@ def main_menu():
         print("9. Exit")
         
         choice = input("Enter your choice: ").strip()
-        
-        # -----------------------------
-        # Step 4: Call functions
-        # -----------------------------
         if choice == '1':
             add_expenses()
         elif choice == '2':
